@@ -1,0 +1,6 @@
+a = int(input("Podaj pierwszą cyfre: "))
+b = int(input("Podaj drugą cyfre: "))
+c = int(input("Podaj trzecią cyfre: "))
+d = int( str(a)+str(b)+str(c) )
+print("Podana cyfra to: "+str(d))
+print("Kwadrat tej cyfry to:"+str(d*d))
