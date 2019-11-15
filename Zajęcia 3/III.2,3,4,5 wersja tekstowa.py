@@ -20,20 +20,31 @@ def dopisDoListy(imie,plec):
 
 def zapisDoPliku():
     try:
-        with open("imiona.bin","wb") as plik:
-            pickle.dump(lista_kobiety, plik)
-            pickle.dump(lista_mezczyzni, plik)
+        with open("imiona.txt","wt") as plik:
+            plik.write("lista_kobiety\n")
+            for kobieta in lista_kobiety:
+                plik.write(str(kobieta)+"\n")
+            plik.write("lista_mezczyzni\n")
+            for mezczyzna in lista_mezczyzni:
+                plik.write(str(mezczyzna)+"\n")
     except:
         print("Wystąpił błąd związany z zapisem! (to jest problem)")
 
 def odczytZPliku():
     try:
-        with open("imiona.bin","rb") as plik:
-            global lista_kobiety
-            lista_kobiety = pickle.load(plik)
-            global lista_mezczyzni
-            lista_mezczyzni = pickle.load(plik)
-            print("Wczytano dane z pliku.")
+        global lista_kobiety
+        global lista_mezczyzni
+        kobiety = False
+        mezczyzni = False
+        with open("imiona.txt","rt") as plik:
+            for linia in plik.readlines():
+                if linia == "lista_kobiety\n": kobiety=True
+                if linia == "lista_mezczyzni\n": mezczyzni=True
+                if kobiety == True and mezczyzni == False and not linia == "lista_kobiety\n" and not linia == "lista_mezczyzni\n":
+                    lista_kobiety.append( linia.rstrip() )
+                elif mezczyzni == True and not linia == "lista_kobiety\n" and not linia == "lista_mezczyzni\n":
+                    lista_mezczyzni.append( linia.rstrip() )
+                
     except FileNotFoundError:
         print("Nie istnieje jeszcze plik z imionami. (to w sumie nie problem)")
     except:
