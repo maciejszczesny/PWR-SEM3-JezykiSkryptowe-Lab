@@ -8,14 +8,30 @@ class Punkt():
         return Punkt(self.x+other.x, self.y+other.y)
     def odleglosc(self):
         return math.hypot(self.x,self.y)
-    def dystans(self,external):
-        return math.hypot(external.x-self.x,external.y-self.y)
+    def dystans(self,ext):
+        return math.hypot(ext.x-self.x,ext.y-self.y)
     def __str__(self):
         return ("Punkt(%g,%g)" % (self.x,self.y))
     def __repr__(self):
         return ("(%g,%g)" % (self.x,self.y))
-p1 = Punkt(1,0)
-p2 = Punkt(55,0)
-print(p1)
-print(p2)
-print(p1.dystans(p2))
+class Kolo(Punkt):
+    def __init__(self, x=Punkt().x,y=Punkt().y,r=1):
+        self.x = x
+        self.y = y
+        self.r = r
+    def obwod(self):
+        return 2*math.pi*self.r
+    def pole(self):
+        return math.pi*self.r**2
+    def __str__(self):
+        return ("Koło(%g,%g,%g)" % (self.x,self.y,self.r))
+    def __repr__(self):
+        return ("(%g,%g,%g)" % (self.x,self.y,self.r))
+    def przesun(self,wektor):
+        self.x += wektor[0]
+        self.y += wektor[1]
+    def cz_wsp(self,ext):
+        return True if self.dystans(ext)-self.r-ext.r <=0 else False
+
+
+
