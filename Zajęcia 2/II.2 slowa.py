@@ -5,4 +5,4 @@ def slowa(rozdzielacz, *slowa):
     print(ciagZnakow)
     return ciagZnakow
 
-slowa(";--;","aaa","bbbbb","cc","d","ee","fff")
+slowa(" ;jjjj ","aaa","bbbbb","cc","d","ee","fff")

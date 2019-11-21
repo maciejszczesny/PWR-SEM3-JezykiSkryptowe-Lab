@@ -8,7 +8,7 @@ while(1):
     y=1
     if(n<=0):
         continue
-    print("Kolejne liczby ciągu fibbonachiego ("+str(n)+" kolejnych wyrazów od 0).")
+    print("Kolejne liczby ciągu fibbonachiego ("+str(n)+" kolejnych wyrazów od 0 włącznie).")
     print(x)
     if(n<=1):
         continue
@@ -18,4 +18,3 @@ while(1):
     for i in range(n-2):
         print(x+y)
         x,y=y,x+y
-    break

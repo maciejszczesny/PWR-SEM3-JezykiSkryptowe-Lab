@@ -1,5 +1,3 @@
-import pickle
-
 lista_kobiety = list()
 lista_mezczyzni = list()
 wyjatki = ["Kosma","Barnaba","Bonawentura","Jarema","Kuba"]
