@@ -7,7 +7,7 @@ def funkcjaKwardatowa(a,b,c):
         print("Pierwiastek z delty: "+str(cmath.sqrt(delta))+"")
         if(delta == 0):
             print("Podwójne miejsce zerowe w jednym punkcie: ")
-            print("X1==X2 = "+str(-(b/2*a))+"")
+            print("X1==X2 = "+str(-(b/(2*a)))+"")
         if(delta > 0):
             print("Dwa różnie miejsca zerowe w różnych punktach: ")
             print("X1 = "+str(  (-b-delta**0.5)/(2*a)  )+"")
